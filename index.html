@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Celebrate Everyday</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+  </script>
+</head>
+<body>
+	<header>
+	  <div class="logo">
+		<img src="Screenshot 2024-08-29 011558.png" alt="Logo">
+	  </div>
+	  <nav>
+		<ul>
+		  <li><a href="#home">Home</a></li>
+		  <li><a href="about.html">Map</a></li>
+		  <li><a href="Participate.html">Participate</a></li>
+		  <!-- <li><a href="reservation.html">About Us</a></li> -->
+		  <li><a href="contact us.html">Contact</a></li>
+      <li class="login"><a href="sign up.html">Sign Up</a></li>
+      <li class="login"><a href="Sign in.html">Sign In</a></li>
+      <li class="logout"><a href="/logout">Sign Out</a></li>
+		</ul>
+	  </nav>
+	</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Celebrate Everyday</h1>
+    <p><b>Celebration Follows You</b></p>
+    <a href="menu.html" class="btn">Explore your area</a>
+  </div>
+</section>
+
+<section class="about dark-theme">
+  <div class="about-content">
+    <h2>About Celebrate Everyday</h2>
+   <p>"Celebrate Everyday" is a dynamic website designed to connect users with local cultural events, 
+    festivals, and performances. It offers a comprehensive platform where individuals can discover a wide range
+     of happenings in their area, from traditional celebrations and arts festivals to live music and community performances. 
+     </p>
+     <p>Users can browse events by date, category, or location, ensuring they find activities that align with their interests. 
+      The website also features options for event registration, ticket purchases, and user reviews, fostering a vibrant community
+       engaged in celebrating and experiencing diverse cultural expressions.</p>
+    <a href="menu.html" class="btn">Explore Your area</a>
+  </div>
+  <div class="about-image">
+    <img src="festival-1.jpg.webp" alt="About Image">
+  </div>
+</section>
+
+
+<section class="gallery">
+
+  <h2>Gallery</h2>
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="listicle_1686140315148_74ycs_1040x500.jpg" alt="Image 1">
+    </div>
+    <div class="image-item">
+      <img src="gif2.jpg" alt="Image 2">
+    </div>
+    <div class="image-item">
+      <img src="Holi-Festival-of-Colors.jpg" alt="Image 3">
+    </div>
+    <div class="image-item">
+      <img src="pexels-wendywei-1537637.jpg" alt="Image 4">
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="Screenshot 2024-08-29 011558.png" alt="Logo">
+    </div>
+    <nav class="footer-links">
+      <a href="#">Home</a>
+      <a href="about.html">Map</a>
+      <a href="menu.html">Participate</a>
+      <a href="reservation.html">About Us</a>
+      <!-- <a href="#">Testimonials</a>
+      <a href="#">Gallery</a> -->
+      <a href="contack us.html">Contact</a>
+    </nav>
+  </div>
+  <p class="footer-text">&copy; 2024 Celebrate Everyday. All rights reserved.</p>
+</footer>
+<script>
+  $(document).ready(function(){
+    $(".logout").hide();
+    $(window).on("load",function(){
+        fetch('/log')
+        .then(response =>{
+            if(!response.ok){
+                throw new Error('Network response was not ok');
+
+            }
+            return response.json();
+        })
+        .then(data => {
+            if(data.loggedIn===true){
+                $(".logout").show();
+                $(".login").hide();
+
+            }else{
+                $(".login").show();
+                $(".logout").hide();
+            }
+        })
+       
+    })
+})
+</script>
+
+</body>
